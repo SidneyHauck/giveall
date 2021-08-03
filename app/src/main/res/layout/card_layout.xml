@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/cv"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="5dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/listingTitle"
+            android:text="@string/listing_title"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/white"
+            android:layout_alignParentTop="true"
+            android:textSize="22sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/listingDesc"
+            android:text="@string/listing_desc"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="12dp"
+            android:textColor="@color/text_green"
+            android:layout_below="@+id/listingTitle" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/expirationDate"
+            android:text="@string/expiration_date"
+            android:textSize="14sp"
+            android:layout_toStartOf="@id/listingDate"
+            android:layout_below="@+id/listingDesc"
+            android:layout_marginEnd="5dp"
+
+            android:textColor="@color/text_green"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/listingDate"
+            android:text="@string/listing_date"
+            android:textSize="14sp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/text_green"
+            android:layout_below="@+id/listingDesc" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

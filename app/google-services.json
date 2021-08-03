@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "681133710884",
+    "project_id": "giving-tree-4beee",
+    "storage_bucket": "giving-tree-4beee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:681133710884:android:af12047c919d885e0682b1",
+        "android_client_info": {
+          "package_name": "com.example.giveall"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "681133710884-er49m6vmhlv9he6ooutarbjk4lh5bfk0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC99Vtv6FZUunNI4K31rSm5Pf1aYeN6s8g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "681133710884-er49m6vmhlv9he6ooutarbjk4lh5bfk0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

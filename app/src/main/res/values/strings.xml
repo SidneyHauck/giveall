@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">giveall</string>
+    <string name="login_btn">Login</string>
+    <string name="sign_up_btn">Sign up</string>
+    <string name="name_hint">First Name</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="login_prompt">Already have an account?</string>
+    <string name="item_hint">Item</string>
+    <string name="item_expiration_hint">Expiration Date MM/DD/YY</string>
+    <string name="new_listing_title">Add a new listing!</string>
+    <string name="submit_listing_btn">Submit</string>
+    <string name="logo_content">green giveall logo with smiley face in g</string>
+    <string name="total_impact">Total Impact</string>
+    <string name="expiration_date">Expiration Date:</string>
+    <string name="listing_desc">Listing Description</string>
+    <string name="listing_date">XX/XX/XX</string>
+    <string name="listing_title">Listing Title</string>
+    <string name="item_details_hint">Details</string>
+    <string name="sign_up_prompt">Don\'t have an account?</string>
+    <string name="auth_failed">Authentication failed, check your email and password or sign up</string>
+    <string name="sign_up_msg">Create an account to start giving today!</string>
+    <string name="profile_people">People shared with</string>
+    <string name="profile_hello">Hello</string>
+    <string name="profile_name">name</string>
+    <string name="people_number">0</string>
+    <string name="profile_water">Water saved (L)</string>
+    <string name="water_number">0</string>
+
+
+    <string name="title_activity_home_page">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_add_listing">Add Listing</string>
+    <string name="title_profile">Profile</string>
+</resources>
