@@ -1,6 +1,5 @@
 package com.example.giveall;
 
-
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -16,8 +15,6 @@ import com.example.giveall.databinding.ActivityHomePageBinding;
 import java.util.ArrayList;
 
 public class HomePageActivity extends AppCompatActivity {
-
-    ArrayList<Listing> listings = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

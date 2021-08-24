@@ -5,33 +5,50 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-
-import java.util.ArrayList;
-
 public class HomeFragment extends Fragment {
-
+    RecyclerView rv;
+    RVAdapter adapter;
+    RecyclerView.LayoutManager layoutManager;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        RecyclerView rv;
-        RecyclerView.Adapter adapter;
-        RecyclerView.LayoutManager layoutManager;
 
+        DatabaseReference queryDatabase = FirebaseDatabase.getInstance().getReference().child("listings");
         super.onCreateView(inflater,container,savedInstanceState);
         View view=inflater.inflate(R.layout.fragment_home,container,false);
         rv = view.findViewById(R.id.rv);
         layoutManager = new LinearLayoutManager(getActivity());
-        ArrayList<Listing> activityListings = ((HomePageActivity) requireActivity()).listings;
-        adapter = new RVAdapter(activityListings);
         rv.setLayoutManager(layoutManager);
-        rv.setAdapter(adapter);
 
+        FirebaseRecyclerOptions<Listing> options =
+                new FirebaseRecyclerOptions.Builder<Listing>()
+                    .setQuery(queryDatabase, Listing.class)
+                    .build();
+
+        adapter = new RVAdapter(options);
+        rv.setAdapter(adapter);
         return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        adapter.stopListening();
     }
 
 }

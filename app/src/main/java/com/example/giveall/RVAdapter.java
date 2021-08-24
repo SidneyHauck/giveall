@@ -5,21 +5,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-
 import org.jetbrains.annotations.NotNull;
-
-import java.util.ArrayList;
+import androidx.annotation.NonNull;
 
 import androidx.recyclerview.widget.RecyclerView;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 
-public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ListingViewHolder>{
-    private ArrayList<Listing> myListings;
+
+public class RVAdapter extends FirebaseRecyclerAdapter<Listing, RVAdapter.ListingViewHolder> {
+
+    public RVAdapter(FirebaseRecyclerOptions<Listing> options){
+        super(options);
+    }
 
     public static class ListingViewHolder extends RecyclerView.ViewHolder {
         TextView listingTitles;
         TextView listingDescription;
         TextView listingDate;
-
 
         public ListingViewHolder(View itemView) {
             super(itemView);
@@ -30,30 +33,17 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ListingViewHolder>
 
     }
 
-    public RVAdapter(ArrayList<Listing> listings){
-        myListings = listings;
-    }
-
     @NotNull
     @Override
     public ListingViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_layout, parent, false);
-        ListingViewHolder lvh = new ListingViewHolder(v);
-        return lvh;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_layout, parent, false);
+        return new ListingViewHolder(view);
     }
 
     @Override
-    public int getItemCount() {
-        return myListings.size();
-    }
-
-
-    @Override
-    public void onBindViewHolder(ListingViewHolder listingViewHolder, int position) {
-        Listing currentItem = myListings.get(position);
-
-        listingViewHolder.listingTitles.setText(currentItem.getTitle());
-        listingViewHolder.listingDescription.setText(currentItem.getDescription());
-        listingViewHolder.listingDate.setText(currentItem.getDate());
+    public void onBindViewHolder(ListingViewHolder listingViewHolder, int position, @NonNull Listing listing) {
+        listingViewHolder.listingTitles.setText(listing.getTitle());
+        listingViewHolder.listingDescription.setText(listing.getDescription());
+        listingViewHolder.listingDate.setText(listing.getDate());
     }
 }
