@@ -6,11 +6,10 @@ In the United States, food waste is estimated at between 30-40 percent of the fo
 
 ## Project Status
 
-This project is currently in development. Users can sign up, log in, submit listings, and scroll through home page of listings. 
+This project is currently in development. Users can sign up, log in, submit listings, and scroll through home page of listings.  
 
 #### In Progress Project Tasks
 
-* Connect to database
 * Enable in app messaging user to user for each posting
 * User set pickup address
   * Post will show distance to pickup address
@@ -27,5 +26,6 @@ This project is currently in development. Users can sign up, log in, submit list
 
 * Android Studio
 * Firebase Authentication
+* Firebase Realtime Database
 
 
