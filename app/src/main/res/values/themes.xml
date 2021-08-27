@@ -12,6 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:datePickerDialogTheme">@style/MyDatePickerDialogTheme</item>
     </style>
 
     <style name="Theme.giveall.NoActionBar">
@@ -20,6 +21,16 @@
     </style>
 
     <style name="Theme.giveall.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="MyDatePickerDialogTheme" parent="android:Theme.Material.Light.Dialog">
+        <item name="colorPrimary">@color/green</item>
+        <item name="android:colorAccent">@color/green</item>
+        <item name="android:buttonBarButtonStyle">@style/MyDatePickerDialogTheme.ButtonBarNegativeButtonStyle</item>
+    </style>
+
+    <style name="MyDatePickerDialogTheme.ButtonBarNegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/light_green</item>
+    </style>
 
     <style name="Theme.giveall.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

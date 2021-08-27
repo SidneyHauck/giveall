@@ -12,7 +12,6 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.giveall.databinding.ActivityHomePageBinding;
 
-import java.util.ArrayList;
 
 public class HomePageActivity extends AppCompatActivity {
 

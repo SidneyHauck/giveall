@@ -11,11 +11,15 @@
         android:theme="@style/Theme.giveall">
         <activity
             android:name=".HomePageActivity"
+            android:windowSoftInputMode="adjustPan"
             android:label="@string/title_activity_home_page">
         </activity>
-        <activity android:name=".LogIn" />
+        <activity
+            android:name=".LogIn"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".MainActivity"
+            android:windowSoftInputMode="adjustPan"
             android:label="@string/app_name"
             android:theme="@style/Theme.giveall.NoActionBar">
             <intent-filter>
