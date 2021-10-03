@@ -6,11 +6,17 @@ In the United States, food waste is estimated at between 30-40 percent of the fo
 
 ## Project Status
 
-This project is currently in development. Users can sign up, log in, submit listings, and scroll through home page of listings.  
+This project is currently in development. 
+
+#### Completed Project Tasks
+
+* User registration & login
+* Add a new listing to the database
+* Home page full of listings pulled from Firebase
+* User is able to message owners of listings to discuss pickup
 
 #### In Progress Project Tasks
 
-* Enable in app messaging user to user for each posting
 * User set pickup address
   * Post will show distance to pickup address
 * Display stats of people shared with and water saved on profile
@@ -18,9 +24,9 @@ This project is currently in development. Users can sign up, log in, submit list
 
 ## Screenshots
 
-<img src=https://user-images.githubusercontent.com/51243916/128387672-b10fd055-6d20-4114-9e20-43c051624096.png width="650"/>
-<img src=https://user-images.githubusercontent.com/51243916/128387673-98f3a9b4-873d-46f6-a0d4-eb6353364df2.png width="650"/>
-
+<img src=https://user-images.githubusercontent.com/51243916/135771903-72a0117b-1129-4fb4-b086-bad8573cbdb8.png width="750"/>
+<img src=https://user-images.githubusercontent.com/51243916/135771901-ae66621f-1274-4160-8d48-040e5d2483f9.png width="750"/>
+<img src=https://user-images.githubusercontent.com/51243916/135771902-818def09-158d-47bc-8190-84113f1ce197.png width="750"/>
 
 ## Tools Used
 
