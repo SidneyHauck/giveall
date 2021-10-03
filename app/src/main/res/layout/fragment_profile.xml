@@ -25,7 +25,7 @@
             android:textSize="30sp"/>
 
         <TextView
-            android:id="@+id/nameName"
+            android:id="@+id/name"
             android:layout_width="236dp"
             android:layout_height="66dp"
             android:layout_marginTop="52dp"
@@ -123,5 +123,12 @@
 
         </androidx.cardview.widget.CardView>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/sign_out"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_out"
+        android:layout_marginTop="50dp"/>
 </LinearLayout>
 

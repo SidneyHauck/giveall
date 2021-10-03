@@ -1,5 +1,8 @@
 package com.example.giveall;
 
+import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,12 +11,18 @@ import android.widget.TextView;
 import org.jetbrains.annotations.NotNull;
 import androidx.annotation.NonNull;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 
 public class RVAdapter extends FirebaseRecyclerAdapter<Listing, RVAdapter.ListingViewHolder> {
+    private static final String TAG = "RVAdapter";
 
     public RVAdapter(FirebaseRecyclerOptions<Listing> options){
         super(options);
@@ -26,9 +35,9 @@ public class RVAdapter extends FirebaseRecyclerAdapter<Listing, RVAdapter.Listin
 
         public ListingViewHolder(View itemView) {
             super(itemView);
-            listingTitles = (TextView)itemView.findViewById(R.id.listingTitle);
-            listingDescription = (TextView)itemView.findViewById(R.id.listingDesc);
-            listingDate = (TextView)itemView.findViewById(R.id.listingDate);
+            listingTitles = itemView.findViewById(R.id.listingTitle);
+            listingDescription = itemView.findViewById(R.id.listingDesc);
+            listingDate = itemView.findViewById(R.id.listingDate);
         }
 
     }
@@ -45,5 +54,23 @@ public class RVAdapter extends FirebaseRecyclerAdapter<Listing, RVAdapter.Listin
         listingViewHolder.listingTitles.setText(listing.getTitle());
         listingViewHolder.listingDescription.setText(listing.getDescription());
         listingViewHolder.listingDate.setText(listing.getDate());
+
+
+        final String listingKey = listing.getKey();
+        final String title = listing.getTitle();
+        final String userID = listing.getUserID();
+        final String userName = listing.getFirstName();
+        listingViewHolder.itemView.setOnClickListener(view -> {
+            Log.d(TAG, "onClick: clicked on: " + title );
+            Log.d(TAG, "onClick: clicked on: " + listingKey );
+
+            Intent msgIntent = new Intent(view.getContext(), MessageActivity.class);
+            msgIntent.putExtra("LISTING_ID", listingKey);
+            msgIntent.putExtra("LISTING_TITLE", title);
+            msgIntent.putExtra("USER_ID", userID);
+            msgIntent.putExtra("USER_NAME", userName);
+
+            view.getContext().startActivity(msgIntent);
+        });
     }
 }

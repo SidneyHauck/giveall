@@ -25,7 +25,7 @@ public class AddListingFragment extends Fragment implements DatePickerDialog.OnD
     private DatabaseReference listingDatabase;
     private DatabaseReference childReference;
     private String key;
-    private EditText expirationDate;
+    private EditText expirationDate, listingTitle, listingDetails;
     private final String newListingToast = "New listing added!";
     private final String emptyFieldToast = "Missing required field. Try again!";
 
@@ -43,22 +43,30 @@ public class AddListingFragment extends Fragment implements DatePickerDialog.OnD
         listingDatabase = FirebaseDatabase.getInstance().getReference("/listings");
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+        listingTitle = view.findViewById(R.id.itemTitle);
+        listingDetails = view.findViewById(R.id.itemDetails);
+
+
         submitButton.setOnClickListener(views -> {
-            String newListingTitle = ((EditText) view.findViewById(R.id.itemTitle)).getText().toString();
+            String newListingTitle = listingTitle.getText().toString();
             String newListingExpirationDate = (expirationDate).getText().toString();
-            String newListingDetails = ((EditText) view.findViewById(R.id.itemDetails)).getText().toString();
+            String newListingDetails = listingDetails.getText().toString();
             assert user != null;
             String displayName = user.getDisplayName();
+            String currentUserID = user.getUid();
 
             if(newListingTitle.isEmpty() || newListingExpirationDate.isEmpty()){
                 Toast.makeText(getActivity(), emptyFieldToast, Toast.LENGTH_SHORT).show();
             } else{
-                Listing listing = new Listing(newListingTitle, newListingDetails, newListingExpirationDate, displayName);
                 childReference = listingDatabase.push();
                 key = childReference.getKey();
                 assert key != null;
+                Listing listing = new Listing(newListingTitle, newListingDetails, newListingExpirationDate, displayName, key, currentUserID);
                 listingDatabase.child(key).setValue(listing);
                 Toast.makeText(getActivity(), newListingToast, Toast.LENGTH_SHORT).show();
+                listingTitle.setText("");
+                listingDetails.setText("");
+                expirationDate.setText("");
             }
         });
 

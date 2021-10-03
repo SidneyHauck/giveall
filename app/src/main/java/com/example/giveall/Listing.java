@@ -5,12 +5,16 @@ public class Listing {
     private String description;
     private String date;
     private String firstName;
+    private String dbKey;
+    private String userID;
 
-    public Listing(String title, String description, String date, String firstName) {
+    public Listing(String title, String description, String date, String firstName, String dbKey, String userID) {
         this.title = title;
         this.description = description;
         this.date = date;
         this.firstName = firstName;
+        this.dbKey = dbKey;
+        this.userID = userID;
     }
     public Listing() {}
 
@@ -31,5 +35,9 @@ public class Listing {
     }
 
     public void setDate(String date) { this.date = date; }
+
+    public String getKey() { return dbKey;}
+
+    public String getUserID() {return userID; }
 
 }

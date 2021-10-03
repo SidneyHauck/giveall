@@ -3,25 +3,33 @@
     package="com.example.giveall">
     <uses-permission android:name="android.permission.INTERNET" />
     <application
-        android:allowBackup="true"
+        android:fullBackupOnly="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.giveall">
         <activity
-            android:name=".HomePageActivity"
-            android:windowSoftInputMode="adjustPan"
-            android:label="@string/title_activity_home_page">
+            android:name=".MessageActivity"
+            android:label="@string/title_messages"
+            android:theme="@style/Theme.giveall.NoActionBar"
+            android:parentActivityName=".HomePageActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.giveall.HomePageActivity" />
         </activity>
         <activity
+            android:name=".HomePageActivity"
+            android:label="@string/title_activity_home_page"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
             android:name=".LogIn"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".MainActivity"
-            android:windowSoftInputMode="adjustPan"
             android:label="@string/app_name"
-            android:theme="@style/Theme.giveall.NoActionBar">
+            android:theme="@style/Theme.giveall.NoActionBar"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

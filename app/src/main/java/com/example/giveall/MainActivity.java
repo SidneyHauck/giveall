@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -19,13 +20,18 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
 
 
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
     private static final String TAG = "EmailPassword";
+    private DatabaseReference RootRef;
+    private EditText UserEmail, UserPassword, UserName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +44,11 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "onAuthStateChanged:signed_out");
         }
         auth = FirebaseAuth.getInstance();
+        RootRef = FirebaseDatabase.getInstance().getReference();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_main);
+
+        InitializeFields();
     }
     /**
      *@param myView
@@ -47,15 +56,31 @@ public class MainActivity extends AppCompatActivity {
      *Called in content_main.xml button
      */
     public void createAccount(View myView) {
-        String name = ((EditText) findViewById(R.id.nameField)).getText().toString();
-        String email = ((EditText) findViewById(R.id.emailAddressField)).getText().toString();
-        String password = ((EditText) findViewById(R.id.passwordField)).getText().toString();
-        auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
+        String name = UserName.getText().toString();
+        String email = UserEmail.getText().toString();
+        String password = UserPassword.getText().toString();
+
+        if (TextUtils.isEmpty(email))
+        {
+            Toast.makeText(this, "Please enter email...", Toast.LENGTH_SHORT).show();
+        }
+        if (TextUtils.isEmpty(password))
+        {
+            Toast.makeText(this, "Please enter password...", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            auth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(MainActivity.this, task -> {
                         if (task.isSuccessful()) {
                             // Sign in success, update user profile
+                            String currentUserID = auth.getCurrentUser().getUid();
+                            HashMap<String, Object> profileMap = new HashMap<>();
+                                profileMap.put("uid", currentUserID);
+                                profileMap.put("name", name);
+
+                            RootRef.child("Users").child(currentUserID).updateChildren(profileMap);
+                            //RootRef.child("Users").child(currentUserID).setValue("");
+
                             Log.d(TAG, "createUserWithEmail:success");
 
                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -66,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
                             if (user != null) {
                                 user.updateProfile(profileUpdates);
                             }
+
                             Intent intent = new Intent(MainActivity.this, HomePageActivity.class);
                             startActivity(intent);
                         } else {
@@ -74,8 +100,15 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         }
-                    }
-                });
+                    });
+        }
+    }
+
+    private void InitializeFields()
+    {
+        UserEmail = findViewById(R.id.emailAddressField);
+        UserPassword = findViewById(R.id.passwordField);
+        UserName = findViewById(R.id.nameField);
     }
 
     /**
