@@ -2,6 +2,10 @@ package com.example.giveall;
 
 public class Contacts {
     public String name;
+    public Contacts(){
+
+    }
+
 
     public Contacts(String name) {
         this.name = name;

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -12,10 +13,12 @@
         android:background="@drawable/receiver_messages_layout"
         android:text="@string/receiver_msgs"
         android:padding="10dp"
-        android:layout_marginStart="10dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="65dp"
         android:textSize="14sp"
-        android:textStyle="bold"
-        android:textColor="@color/dark_green_text"/>
+        android:textColor="@color/black"/>
 
     <TextView
         android:id="@+id/sender_message_text"
@@ -24,12 +27,15 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="10dp"
         android:layout_alignParentTop="@+id/receiver_message_text"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="65dp"
         android:background="@drawable/sender_messages_layout"
         android:text="@string/sender_msgs"
         android:textSize="14sp"
         android:padding="10dp"
-        android:textStyle="bold"
-        android:textColor="@color/dark_green_text"/>
+        android:paddingStart="10dp"
+        android:paddingEnd="15dp"
+        android:textColor="@color/white"
+        tools:ignore="RelativeOverlap" />
 
 </RelativeLayout>
