@@ -29,16 +29,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/set_profile_image"
-        android:inputType="textMultiLine"
-        android:hint="@string/username"
-        android:textAlignment="center"
-        android:drawableStart="@drawable/ic_baseline_person_24"
-        android:background="@drawable/round_border"
-        android:drawablePadding="4dp"
-        android:padding="16dp"
-        android:layout_marginTop="20dp"
         android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"/>
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/round_border"
+        android:drawableStart="@drawable/ic_baseline_person_24"
+        android:drawablePadding="4dp"
+        android:hint="@string/username"
+        android:inputType="textMultiLine"
+        android:padding="16dp"/>
 
     <EditText
         android:id="@+id/set_address"
@@ -47,7 +46,6 @@
         android:layout_below="@+id/set_user_name"
         android:inputType="textMultiLine"
         android:hint="@string/set_address"
-        android:textAlignment="center"
         android:drawableStart="@drawable/ic_baseline_location_on_24"
         android:background="@drawable/round_border"
         android:drawablePadding="4dp"

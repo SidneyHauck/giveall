@@ -24,9 +24,10 @@ This project is currently in development.
 
 ## Screenshots
 
-<img src=https://user-images.githubusercontent.com/51243916/135771903-72a0117b-1129-4fb4-b086-bad8573cbdb8.png width="750"/>
-<img src=https://user-images.githubusercontent.com/51243916/135771901-ae66621f-1274-4160-8d48-040e5d2483f9.png width="750"/>
-<img src=https://user-images.githubusercontent.com/51243916/135873860-e510eb47-8b62-4dda-852c-9c7de16e0f60.png width="750"/>
+<img src=https://user-images.githubusercontent.com/51243916/136852121-35b88065-ead2-472a-b2d0-3077511a3f1d.png width="750"/>
+<img src=https://user-images.githubusercontent.com/51243916/136852123-4e5fd0b9-1f95-4a5d-85d2-9d7f80a7553a.png width="750"/>
+<img src=https://user-images.githubusercontent.com/51243916/136852117-cfaf49d2-d5fa-4d47-83ee-8cc76f7bcc3b.png width="750"/>
+<img src=https://user-images.githubusercontent.com/51243916/136852119-8be86fd3-9576-499d-b50c-9f886019b391.png width="750"/>
 
 ## Tools Used
 

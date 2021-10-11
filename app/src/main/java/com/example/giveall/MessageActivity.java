@@ -26,6 +26,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -36,6 +37,7 @@ import java.util.Objects;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class MessageActivity extends AppCompatActivity {
@@ -44,8 +46,9 @@ public class MessageActivity extends AppCompatActivity {
     private ImageButton SendMessageButton;
     private EditText MessageInputText;
     private FirebaseAuth mAuth;
-    private DatabaseReference rootRef, MessagesRef, ContactsRef;
-    private String messageReceiverId, listingTitle, listingId, messageReceiverName, messageSenderId;
+    private DatabaseReference rootRef, MessagesRef, ContactsRef, ReceiverRef;
+    private String messageReceiverId, listingTitle, listingId, messageReceiverName, messageSenderId, messageReceiverImage;
+    private CircleImageView userImage;
     private Toolbar MessageToolbar;
     private final List<Messages> messagesList = new ArrayList<>();
     private LinearLayoutManager linearLayoutManager;
@@ -64,11 +67,30 @@ public class MessageActivity extends AppCompatActivity {
         MessagesRef = FirebaseDatabase.getInstance().getReference().child("Messages").child(messageSenderId);
         ContactsRef = FirebaseDatabase.getInstance().getReference().child("Contacts");
 
+        final String[] retImage = {"default_image"};
         Bundle extras = getIntent().getExtras();
         messageReceiverId = extras.getString("USER_ID");
         listingTitle = extras.getString("LISTING_TITLE");
         listingId = extras.getString("LISTING_ID");
         messageReceiverName = extras.getString("USER_NAME");
+
+        rootRef.child("Users").child(messageReceiverId).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    if(snapshot.hasChild("image")){
+                        retImage[0] = snapshot.child("image").getValue().toString();
+                        Picasso.get().load(retImage[0]).placeholder(R.drawable.profile_image).into(userImage);
+
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         InitializeControllers();
 
@@ -101,6 +123,7 @@ public class MessageActivity extends AppCompatActivity {
         actionBar.setCustomView(actionBarView);
 
         msgUserName = findViewById(R.id.profile_name);
+        userImage = findViewById(R.id.custom_profile_image);
 
         SendMessageButton = findViewById(R.id.send_btn);
         MessageInputText = findViewById(R.id.input_message);

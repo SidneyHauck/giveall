@@ -26,8 +26,6 @@ public class HomeFragment extends Fragment {
         super.onCreateView(inflater,container,savedInstanceState);
         View view=inflater.inflate(R.layout.fragment_home,container,false);
         rv = view.findViewById(R.id.rv);
-        //layoutManager = new LinearLayoutManager(getActivity());
-        //rv.setLayoutManager(layoutManager);
         layoutManager = new WrapContentLinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         rv.setLayoutManager(layoutManager);
 

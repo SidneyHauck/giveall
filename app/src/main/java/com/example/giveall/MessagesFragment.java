@@ -7,8 +7,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import de.hdodenhof.circleimageview.CircleImageView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +23,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.Objects;
 
@@ -30,7 +31,6 @@ import java.util.Objects;
 public class MessagesFragment extends Fragment {
     private RecyclerView rvMessages;
     private View messagesView;
-    private static final String TAG = "MessagesFragment";
     private DatabaseReference msgRef, usersRef;
     private FirebaseAuth mAuth;
     private String currentUserId;
@@ -40,8 +40,6 @@ public class MessagesFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        super.onCreateView(inflater,container,savedInstanceState);
-        Log.d(TAG, "onCreateView: started");
         messagesView = inflater.inflate(R.layout.fragment_messages,container,false);
         mAuth = FirebaseAuth.getInstance();
         currentUserId = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
@@ -51,7 +49,6 @@ public class MessagesFragment extends Fragment {
 
         rvMessages = messagesView.findViewById(R.id.rv_messages_fragment);
         rvMessages.setLayoutManager(new LinearLayoutManager(getContext()));
-
 
         return messagesView;
     }
@@ -70,11 +67,17 @@ public class MessagesFragment extends Fragment {
                     @Override
                     protected void onBindViewHolder(@NonNull MessagingViewHolder holder, int position, @NonNull Contacts model) {
                         final String usersIDs = getRef(position).getKey();
+                        final String[] retImage = {"default_image"};
 
                         usersRef.child(usersIDs).addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 if (snapshot.exists()) {
+                                    if(snapshot.hasChild("image")){
+                                        retImage[0] = snapshot.child("image").getValue().toString();
+                                        Picasso.get().load(retImage[0]).into(holder.profileImage);
+                                    }
+
                                     final String retName = snapshot.child("name").getValue().toString();
 
                                     holder.userName.setText(retName);
@@ -85,9 +88,9 @@ public class MessagesFragment extends Fragment {
                                         msgIntent.putExtra("USER_NAME", retName);
                                         startActivity(msgIntent);
                                     });
-                                }/*else{
+                                }else{
                                     Toast.makeText(getActivity(), "You do not have any messages, go click on a listing to chat!", Toast.LENGTH_LONG).show();
-                                }*/
+                                }
                             }
 
                             @Override
@@ -111,11 +114,12 @@ public class MessagesFragment extends Fragment {
 
     public static class MessagingViewHolder extends RecyclerView.ViewHolder{
 
+        CircleImageView profileImage;
         TextView userName;
 
         public MessagingViewHolder(@NonNull View itemView) {
             super(itemView);
-
+            profileImage = itemView.findViewById(R.id.users_profile_image);
             userName = itemView.findViewById(R.id.user_profile_name);
         }
     }

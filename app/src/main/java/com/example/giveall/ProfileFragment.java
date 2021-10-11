@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -18,6 +19,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 
 public class ProfileFragment extends Fragment {
@@ -26,6 +28,8 @@ public class ProfileFragment extends Fragment {
     private String currentUserID;
     private FirebaseAuth mAuth;
     private DatabaseReference UserRef;
+    private CircleImageView userProfileImage;
+    private TextView nameTextView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -38,8 +42,10 @@ public class ProfileFragment extends Fragment {
 
         signOutButton = view.findViewById(R.id.sign_out);
         settingsButton = view.findViewById(R.id.settings_btn);
+        userProfileImage = view.findViewById(R.id.visit_profile_image);
+        nameTextView = view.findViewById(R.id.name);
 
-        if (user != null) {
+        /*if (user != null) {
             //display user's name in profile
             UserRef.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
@@ -48,6 +54,7 @@ public class ProfileFragment extends Fragment {
                     TextView textView = view.findViewById(R.id.name);
                     String displayName = retrieveUserName + "!";
                     textView.setText(displayName);
+                    Picasso.get().load(userImage).placeholder(R.drawable.profile_image).into(userProfileImage);
                 }
 
                 @Override
@@ -55,7 +62,8 @@ public class ProfileFragment extends Fragment {
 
                 }
             });
-        }
+        }*/
+        RetrieveUserInfo();
 
         signOutButton.setOnClickListener(views -> {
             FirebaseAuth.getInstance().signOut();
@@ -70,6 +78,37 @@ public class ProfileFragment extends Fragment {
             startActivity(i);
         });
         return view;
+    }
+
+    private void RetrieveUserInfo() {
+        UserRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if ((snapshot.exists())  &&  (snapshot.hasChild("image")))
+                {
+                    String userImage = snapshot.child("image").getValue().toString();
+                    String userName = snapshot.child("name").getValue().toString();
+                    String displayName = userName + "!";
+
+                    Picasso.get().load(userImage).placeholder(R.drawable.profile_image).into(userProfileImage);
+
+                    nameTextView.setText(displayName);
+                }
+                else
+                {
+                    String userName = snapshot.child("name").getValue().toString();
+                    String displayName = userName + "!";
+                    nameTextView.setText(displayName);
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
 

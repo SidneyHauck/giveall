@@ -55,11 +55,12 @@ public class RVAdapter extends FirebaseRecyclerAdapter<Listing, RVAdapter.Listin
         listingViewHolder.listingDescription.setText(listing.getDescription());
         listingViewHolder.listingDate.setText(listing.getDate());
 
-
         final String listingKey = listing.getKey();
         final String title = listing.getTitle();
         final String userID = listing.getUserID();
         final String userName = listing.getFirstName();
+        final String[] retImage = {"default_image"};
+
         listingViewHolder.itemView.setOnClickListener(view -> {
             Log.d(TAG, "onClick: clicked on: " + title );
             Log.d(TAG, "onClick: clicked on: " + listingKey );

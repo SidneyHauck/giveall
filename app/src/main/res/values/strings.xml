@@ -2,6 +2,7 @@
     <string name="app_name">giveall</string>
     <string name="login_btn">Login</string>
     <string name="sign_up_btn">Sign up</string>
+    <string name="login_screen">Login</string>
     <string name="name_hint">First Name</string>
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
@@ -27,7 +28,6 @@
     <string name="profile_water">Water saved (L)</string>
     <string name="water_number">0</string>
     <string name="sign_out">Sign Out</string>
-    <string name="user_name">Messenger username</string>
     <string name="receiver_msgs">Receiever messages here</string>
     <string name="sender_msgs">Sender messages here</string>
     <string name="message_here">Type message here…</string>

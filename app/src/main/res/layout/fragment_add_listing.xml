@@ -20,14 +20,15 @@
             android:layout_marginBottom="8dp"
             android:layout_gravity="start"
             android:text="@string/new_listing_title"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:textColor="@color/dark_green_text"/>
 
         <EditText
             android:id="@+id/itemTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/round_border"
             android:drawableStart="@drawable/ic_baseline_add_box_24"
             android:drawablePadding="4dp"
@@ -41,8 +42,8 @@
             android:id="@+id/itemDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/round_border"
             android:drawableStart="@drawable/ic_baseline_list_24"
             android:drawablePadding="4dp"
@@ -57,7 +58,7 @@
             android:id="@+id/itemExpirationDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/round_border"
             android:drawableStart="@drawable/ic_baseline_date_range_24"
