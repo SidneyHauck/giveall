@@ -11,7 +11,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.DocumentsContract;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -22,8 +21,6 @@ import android.widget.Toast;
 
 import com.canhub.cropper.CropImageContractOptions;
 import com.canhub.cropper.CropImageOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -36,7 +33,6 @@ import com.canhub.cropper.CropImageView;
 import com.canhub.cropper.CropImageContract;
 import com.squareup.picasso.Picasso;
 
-import java.util.HashMap;
 import java.util.Objects;
 
 public class SettingsActivity extends AppCompatActivity {
@@ -82,7 +78,7 @@ public class SettingsActivity extends AppCompatActivity {
                 .setAspectRatio(1,1);
 
 
-        ActivityResultLauncher<CropImageContractOptions> activityResultLauncher =
+        ActivityResultLauncher<CropImageContractOptions> cropActivityResultLauncher =
                 registerForActivityResult(new CropImageContract(), result -> {
                             if (result.isSuccessful()) {
                                 ImageUri = result.getUriContent();
@@ -119,9 +115,7 @@ public class SettingsActivity extends AppCompatActivity {
                             }
                         });
 
-        userProfileImage.setOnClickListener(view -> {
-            activityResultLauncher.launch(options);
-        });
+        userProfileImage.setOnClickListener(view -> cropActivityResultLauncher.launch(options));
 
         UpdateAccountSettings.setOnClickListener(view -> UpdateSettings());
     }
@@ -139,12 +133,15 @@ public class SettingsActivity extends AppCompatActivity {
     private void UpdateSettings() {
         setUserName = userName.getText().toString();
         setUserAddress = userAddress.getText().toString();
+        int length = setUserAddress.length();
 
 
         if(TextUtils.isEmpty(setUserName)){
             Toast.makeText(this, "Please write your user name.", Toast.LENGTH_LONG).show();
         }else if(TextUtils.isEmpty(setUserAddress)){
-            Toast.makeText(this, "Please write your pickup address for listings.", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please enter your zip code.", Toast.LENGTH_LONG).show();
+        }else if(length != 5){
+            Toast.makeText(this, "Incorrect zip code, please try again.", Toast.LENGTH_LONG).show();
         }
         else{
             RootRef.child("Users").child(currentUserID).child("name").setValue(setUserName);

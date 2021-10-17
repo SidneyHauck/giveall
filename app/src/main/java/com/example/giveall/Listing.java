@@ -24,6 +24,8 @@ public class Listing {
 
     public String getFirstName() { return firstName; }
 
+    public void setFirstName(String firstName) { this.firstName = firstName; }
+
     public String getDescription(){
         return description;
     }
@@ -38,6 +40,10 @@ public class Listing {
 
     public String getKey() { return dbKey;}
 
-    public String getUserID() {return userID; }
+    public void setKey(String dbKey) { this.dbKey = dbKey; }
+
+    public String getUserID() { return userID; }
+
+    public void setUserID(String userID) { this.userID = userID; }
 
 }

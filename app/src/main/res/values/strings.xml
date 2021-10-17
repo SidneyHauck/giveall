@@ -32,7 +32,7 @@
     <string name="sender_msgs">Sender messages here</string>
     <string name="message_here">Type message here…</string>
     <string name="username">Username</string>
-    <string name="set_address">Pickup address</string>
+    <string name="set_address">Enter zip code</string>
     <string name="settings_button">Update</string>
     <string name="settings">Settings</string>
 

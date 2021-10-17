@@ -34,7 +34,6 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater,container,savedInstanceState);
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         View view=inflater.inflate(R.layout.fragment_profile,container,false);
         mAuth = FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
@@ -45,24 +44,6 @@ public class ProfileFragment extends Fragment {
         userProfileImage = view.findViewById(R.id.visit_profile_image);
         nameTextView = view.findViewById(R.id.name);
 
-        /*if (user != null) {
-            //display user's name in profile
-            UserRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    String retrieveUserName = snapshot.child("name").getValue().toString();
-                    TextView textView = view.findViewById(R.id.name);
-                    String displayName = retrieveUserName + "!";
-                    textView.setText(displayName);
-                    Picasso.get().load(userImage).placeholder(R.drawable.profile_image).into(userProfileImage);
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
-        }*/
         RetrieveUserInfo();
 
         signOutButton.setOnClickListener(views -> {

@@ -10,6 +10,7 @@
       <map>
         <entry key="..\:/giveallapp/app/src/main/res/drawable/borderbottom.xml" value="0.3828125" />
         <entry key="..\:/giveallapp/app/src/main/res/drawable/ic_baseline_add_box_24.xml" value="0.2703125" />
+        <entry key="..\:/giveallapp/app/src/main/res/drawable/ic_baseline_add_circle_outline_50.xml" value="0.3140625" />
         <entry key="..\:/giveallapp/app/src/main/res/drawable/ic_baseline_date_range_24.xml" value="0.2703125" />
         <entry key="..\:/giveallapp/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.35260416666666666" />
         <entry key="..\:/giveallapp/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.2703125" />
@@ -21,6 +22,7 @@
         <entry key="..\:/giveallapp/app/src/main/res/drawable/ic_send_button_01.xml" value="0.346875" />
         <entry key="..\:/giveallapp/app/src/main/res/drawable/profile_image.xml" value="0.3151041666666667" />
         <entry key="..\:/giveallapp/app/src/main/res/drawable/receiver_messages_layout.xml" value="0.33125" />
+        <entry key="..\:/giveallapp/app/src/main/res/drawable/round_btn.xml" value="0.3140625" />
         <entry key="..\:/giveallapp/app/src/main/res/drawable/sender_messages_layout.xml" value="0.33125" />
         <entry key="..\:/giveallapp/app/src/main/res/layout/activity_home_page.xml" value="0.264" />
         <entry key="..\:/giveallapp/app/src/main/res/layout/activity_log_in.xml" value="0.264" />

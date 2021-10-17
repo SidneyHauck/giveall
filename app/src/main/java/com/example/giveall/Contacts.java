@@ -1,13 +1,13 @@
 package com.example.giveall;
 
 public class Contacts {
-    public String name;
-    public Contacts(){
+    public String name, image;
 
-    }
+    public Contacts(){ }
 
 
-    public Contacts(String name) {
+    public Contacts(String name, String image) {
+        this.image = image;
         this.name = name;
     }
 
@@ -17,6 +17,14 @@ public class Contacts {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
 }
