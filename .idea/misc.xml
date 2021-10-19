@@ -9,6 +9,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/giveallapp/app/src/main/res/drawable/borderbottom.xml" value="0.3828125" />
+        <entry key="..\:/giveallapp/app/src/main/res/drawable/card_design.xml" value="0.3546875" />
+        <entry key="..\:/giveallapp/app/src/main/res/drawable/ic_add_image.xml" value="0.3541666666666667" />
+        <entry key="..\:/giveallapp/app/src/main/res/drawable/ic_add_image_listing.xml" value="0.3541666666666667" />
         <entry key="..\:/giveallapp/app/src/main/res/drawable/ic_baseline_add_box_24.xml" value="0.2703125" />
         <entry key="..\:/giveallapp/app/src/main/res/drawable/ic_baseline_add_circle_outline_50.xml" value="0.3140625" />
         <entry key="..\:/giveallapp/app/src/main/res/drawable/ic_baseline_date_range_24.xml" value="0.2703125" />
@@ -20,15 +23,17 @@
         <entry key="..\:/giveallapp/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.2703125" />
         <entry key="..\:/giveallapp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
         <entry key="..\:/giveallapp/app/src/main/res/drawable/ic_send_button_01.xml" value="0.346875" />
+        <entry key="..\:/giveallapp/app/src/main/res/drawable/msg_round_border.xml" value="0.3541666666666667" />
         <entry key="..\:/giveallapp/app/src/main/res/drawable/profile_image.xml" value="0.3151041666666667" />
         <entry key="..\:/giveallapp/app/src/main/res/drawable/receiver_messages_layout.xml" value="0.33125" />
+        <entry key="..\:/giveallapp/app/src/main/res/drawable/round_border.xml" value="0.3546875" />
         <entry key="..\:/giveallapp/app/src/main/res/drawable/round_btn.xml" value="0.3140625" />
         <entry key="..\:/giveallapp/app/src/main/res/drawable/sender_messages_layout.xml" value="0.33125" />
         <entry key="..\:/giveallapp/app/src/main/res/layout/activity_home_page.xml" value="0.264" />
         <entry key="..\:/giveallapp/app/src/main/res/layout/activity_log_in.xml" value="0.264" />
         <entry key="..\:/giveallapp/app/src/main/res/layout/activity_message.xml" value="0.3265625" />
         <entry key="..\:/giveallapp/app/src/main/res/layout/activity_settings.xml" value="0.33645833333333336" />
-        <entry key="..\:/giveallapp/app/src/main/res/layout/card_layout.xml" value="0.1671195652173913" />
+        <entry key="..\:/giveallapp/app/src/main/res/layout/card_layout.xml" value="0.4" />
         <entry key="..\:/giveallapp/app/src/main/res/layout/content_main.xml" value="0.26132246376811596" />
         <entry key="..\:/giveallapp/app/src/main/res/layout/custom_message_bar.xml" value="0.31302083333333336" />
         <entry key="..\:/giveallapp/app/src/main/res/layout/custom_messages_layout.xml" value="0.536" />

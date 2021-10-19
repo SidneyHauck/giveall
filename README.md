@@ -25,7 +25,7 @@ This project is currently in development.
 ## Screenshots
 
 <img src=https://user-images.githubusercontent.com/51243916/136852121-35b88065-ead2-472a-b2d0-3077511a3f1d.png width="750"/>
-<img src=https://user-images.githubusercontent.com/51243916/136852123-4e5fd0b9-1f95-4a5d-85d2-9d7f80a7553a.png width="750"/>
+<img src=https://user-images.githubusercontent.com/51243916/137957155-b710c2d9-c534-42c7-b560-9c577e15379a.png width="750"/>
 <img src=https://user-images.githubusercontent.com/51243916/137645843-c21aa279-54ae-45d4-95c1-f3841bc0b0ea.png width="750"/>
 <img src=https://user-images.githubusercontent.com/51243916/137645841-10c826db-30cc-4f6b-856b-4ba42e3ed14f.png width="750"/>
 

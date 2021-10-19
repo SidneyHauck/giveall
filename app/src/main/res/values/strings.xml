@@ -9,7 +9,6 @@
     <string name="login_prompt">Already have an account?</string>
     <string name="item_hint">Item</string>
     <string name="item_expiration_hint">Choose Expiration Date</string>
-    <string name="new_listing_title">Add a new listing!</string>
     <string name="submit_listing_btn">Submit</string>
     <string name="logo_content">green giveall logo with smiley face in g</string>
     <string name="total_impact">Total Impact</string>

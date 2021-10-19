@@ -50,7 +50,7 @@
             android:layout_marginTop="5dp"
             android:importantForAutofill="no"
             android:inputType="textMultiLine"
-            android:background="@drawable/round_border"/>
+            android:background="@drawable/msg_round_border"/>
 
         <ImageButton
             android:id="@+id/send_btn"

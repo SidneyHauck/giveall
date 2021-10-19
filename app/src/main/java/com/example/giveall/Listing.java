@@ -2,19 +2,21 @@ package com.example.giveall;
 
 public class Listing {
     private String title;
-    private String description;
     private String date;
     private String firstName;
+    private String profileImage;
     private String dbKey;
     private String userID;
+    private String listingImage;
 
-    public Listing(String title, String description, String date, String firstName, String dbKey, String userID) {
+    public Listing(String title, String date, String firstName, String profileImage, String dbKey, String userID, String listingImage) {
         this.title = title;
-        this.description = description;
         this.date = date;
         this.firstName = firstName;
+        this.profileImage = profileImage;
         this.dbKey = dbKey;
         this.userID = userID;
+        this.listingImage = listingImage;
     }
     public Listing() {}
 
@@ -25,12 +27,6 @@ public class Listing {
     public String getFirstName() { return firstName; }
 
     public void setFirstName(String firstName) { this.firstName = firstName; }
-
-    public String getDescription(){
-        return description;
-    }
-
-    public void setDescription(String description) { this.description = description; }
 
     public String getDate(){
         return date;
@@ -46,4 +42,19 @@ public class Listing {
 
     public void setUserID(String userID) { this.userID = userID; }
 
+    public String getImage() {
+        return listingImage;
+    }
+
+    public void setImage(String listingImage) {
+        this.listingImage = listingImage;
+    }
+
+    public String getProfileImage() {
+        return profileImage;
+    }
+
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
+    }
 }

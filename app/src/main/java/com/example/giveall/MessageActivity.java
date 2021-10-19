@@ -52,7 +52,7 @@ public class MessageActivity extends AppCompatActivity {
     private ImageButton SendMessageButton, SendFilesButton;
     private EditText MessageInputText;
     private DatabaseReference RootRef, ContactsRef;
-    private String messageReceiverId, listingTitle, listingId, listingDesc, listingAutofillMsg, messageReceiverName, messageSenderId;
+    private String messageReceiverId, listingTitle, listingId, listingAutofillMsg, messageReceiverName, messageSenderId;
     private CircleImageView userImage;
     private final List<Messages> messagesList = new ArrayList<>();
     private MessagesAdapter messagesAdapter;
@@ -129,7 +129,6 @@ public class MessageActivity extends AppCompatActivity {
         messageReceiverId = extras.getString("USER_ID");
         listingTitle = extras.getString("LISTING_TITLE");
         listingId = extras.getString("LISTING_ID");
-        listingDesc = extras.getString("LISTING_DESC");
 
         messageReceiverName = extras.getString("USER_NAME");
 
@@ -165,7 +164,7 @@ public class MessageActivity extends AppCompatActivity {
         });
 
         if(listingTitle != null){
-            listingAutofillMsg = "Listing Title: "+ listingTitle + "\n Details: " + listingDesc;
+            listingAutofillMsg = "Hi I'm interested in your listing for "+ listingTitle + "!";
             MessageInputText.setText(listingAutofillMsg);
         }
 
